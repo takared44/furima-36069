@@ -6,7 +6,6 @@
 |:----------------------|-----------|----------------------------|
 |name                   |string     |null:false,index:true       |
 |text                   |text       |null:false                  |
-|brand                  |string     |                            |
 |status                 |integer    |null:false,default:0        |
 |delivery_charge_bearer |integer    |null:false,default:0        |
 |price                  |integer    |null:false                  |
