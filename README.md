@@ -1,24 +1,138 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## itemsテーブル
 
-Things you may want to cover:
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|name                   |string     |null:false,index:true       |
+|text                   |text       |null:false                  |
+|brand                  |string     |                            |
+|status                 |integer    |null:false,default:0        |
+|delivery_charge_bearer |integer    |null:false,default:0        |
+|price                  |integer    |null:false                  |
+|seller_id              |references |null:false,foreign_key:true |
+|buyer_id               |references |foreign_key:true            |
+|category_id            |references |null:false,foreign_key:true |
+|prefecture_id          |integer    |null:false,default:0        |
+|delivery/days          |integer    |null:false,default:0        |
 
-* Ruby version
+### Association
 
-* System dependencies
+- belongs_to :user
+- belongs_to :category
+- has_many :item_images,dependent:destroy
 
-* Configuration
+## categoriesテーブル
 
-* Database creation
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|name                   |string     |null:false                  |
 
-* Database initialization
+#### gem指定
 
-* How to run the test suite
+ gem ancestry
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+- has_many :items
+- has_ancestry
 
-* ...
+## item_imagesテーブル
+
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|src                    |string     |null:false                  |
+|item_id                |references |null:false,foreign_key:true |
+
+### Association
+
+- belongs_to :item
+
+## usersテーブル
+
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|nickname               |string     |null:false                  |
+|email                  |string     |null:false,unique:true      |
+|encrypted_password     |string     |null:false                  |
+
+### Association
+
+- has_one :profile,dependent: :destroy
+- has_one :user_address,dependent: :destroy
+- has_one :payment_card,dependent: :destroy
+- has_many :items,dependent: :destroy,foreign_key: :items
+- has_many :sns_credentials,dependent: :destroy
+
+## profileテーブル
+
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|family_name            |string     |null:false                  |
+|first_name             |string     |null:false                  |
+|family_name_furigana   |string     |null:false                  |
+|first_name_furigana    |string     |null:false                  |
+|birthday               |date       |null:false                  |
+|user_id                |references |null:false,foreign_key:true |
+
+### Association
+
+- belongs_to :user
+
+## addressesテーブル
+
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|family_name            |string     |null:false                  |
+|first_name             |string     |null:false                  |
+|family_name_kana       |string     |null:false                  |
+|first_name_kana        |string     |null:false                  |
+|post_number            |string     |null:false                  |
+|prefecture_id          |integer    |null:false,default: 0       |
+|city                   |string     |null:false                  |
+|house_number           |integer    |null:false                  |
+|building_name          |string     |                            |
+|phone_number           |string     |                            |
+|user_id                |references |null:false,foreign_key:true |
+
+### Association
+
+- belongs_to :user
+
+## payment_cardsテーブル
+
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|user_id                |references |null:false,foreign_key:true |
+|customer_id            |string     |null:false                  |
+
+### Association
+
+- belongs_to :user
+
+## sns_credentialsテーブル
+
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|provider               |string     |                            |
+|uid                    |string     |                            |
+|user_id                |references |null:false,foreign_key:true |
+
+### Association
+
+- belongs_to :user,optional: true
+
+
+## favoritesテーブル
+
+| Colum                 | Type      | Options                    |
+|:----------------------|-----------|----------------------------|
+|user_id                |references |                            |
+|item_id                |references |                            |
+
+### Association
+
+- has_many :favorites,dependent: :destroy
+- has_many :favorites,dependent: :destroy
+- has_many :favorite_items,through: :favorites,source: : :item
+
