@@ -19,7 +19,7 @@
                 <mxCell id="AvC1nVBK0GeLXNqufEMX-75" value="users" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#f0f0f0;" vertex="1" parent="1">
                     <mxGeometry x="310" y="-990" width="210" height="116" as="geometry"/>
                 </mxCell>
-                <mxCell id="AvC1nVBK0GeLXNqufEMX-76" value="name ,string ,null:false" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="AvC1nVBK0GeLXNqufEMX-75">
+                <mxCell id="AvC1nVBK0GeLXNqufEMX-76" value="nickname ,string ,null:false" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="AvC1nVBK0GeLXNqufEMX-75">
                     <mxGeometry y="26" width="210" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="AvC1nVBK0GeLXNqufEMX-77" value="email ,string ,null,false,unque:true" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="AvC1nVBK0GeLXNqufEMX-75">
