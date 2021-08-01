@@ -9,9 +9,9 @@
 |status                 |integer    |null:false,default:0        |
 |delivery_charge_bearer |integer    |null:false,default:0        |
 |price                  |integer    |null:false                  |
-|seller_id              |references |null:false,foreign_key:true |
-|buyer_id               |references |foreign_key:true            |
-|category_id            |references |null:false,foreign_key:true |
+|seller_id              |integer    |null:false,foreign_key:true |
+|buyer_id               |integer    |foreign_key:true            |
+|category_id            |integer    |null:false,foreign_key:true |
 |prefecture_id          |integer    |null:false,default:0        |
 |delivery/days          |integer    |null:false,default:0        |
 
