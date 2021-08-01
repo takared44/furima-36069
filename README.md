@@ -110,3 +110,5 @@
 - belongs_to :user
 
 
+
+
