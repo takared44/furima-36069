@@ -4,8 +4,8 @@
 
 | Colum                 | Type      | Options                    |
 |:----------------------|-----------|----------------------------|
-|name                   |string     |null:false,index:true       |
-|text                   |text       |null:false                  |
+|name                   |integer    |null:false,index:true       |
+|text                   |integer    |null:false                  |
 |status                 |integer    |null:false,default:0        |
 |delivery_charge_bearer |integer    |null:false,default:0        |
 |price                  |integer    |null:false                  |
