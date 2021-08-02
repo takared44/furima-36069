@@ -9,14 +9,14 @@ end
 
 describe 'ユーザー新規登録' do
   context '新規登録がうまくいかない時' do
-    it 'nicnameとemail、passwordとpassword_confirdaymation、last_name、firstname、last_name_kana、first_name_kana、birthdayが存在すれば登録できる' do
+    it 'nicnameとemail、passwordとpassword_confirmation、last_name、first_name、last_name_kana、first_name_kana、birthdayが存在すれば登録できる' do
       expect(@user).to be_valid
     end
   end
 
   context '新規登録がうまくいかないとき' do
     it 'nicknameが空では登録できない' do
-      @user.email = ''
+      @user.nickname = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("ニックネームを入力してください")
     end
@@ -64,13 +64,13 @@ describe 'ユーザー新規登録' do
     it 'emailは@を含んでいないと登録できない' do
       @user.email = 'aaa.gmail.com'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Eメールは不正な値です")
+      expect(@user.errors.full_messages).to include('Eメールは不正な値です')
     end
     it '重複したemailが存在する場合登録できない' do
       @user.save
       another_user = FactoryBot.build(:user)
       another_user.email = @user.email
-      another_user.varid?
+      another_user.valid?
       expect(another_user.errors.full_messages).to include('Eメールはすでに存在します')
     end
     it 'passwordが半角英数混合でなければ登録できない' do
@@ -106,7 +106,7 @@ describe 'ユーザー新規登録' do
       expect(@user.errors.full_messages).to include('名字は全角文字を使用してください')
     end
     it 'ユーザー本名(名前)は英語ではできない' do
-      @user.last_name = 'tarou'
+      @user.first_name = 'tarou'
       @user.valid?
       expect(@user.errors.full_messages).to include('名前は全角文字を使用してください')
     end
