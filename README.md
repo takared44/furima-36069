@@ -57,12 +57,12 @@
 | Colum                 | Type      | Options                    |
 |:----------------------|-----------|----------------------------|
 |postcode               |string     |null:false                  |
-|prefecture_id          |integer    |null:false                  |
+|delivery_prefecture_id |integer    |null:false                  |
 |city                   |string     |null:false                  |
 |bloc                   |string     |null:false                  |
 |building               |string     |                            |
 |phone                  |string     |null:false                  |
-|record                 |references |null:false,foreign-key:true |
+|record                 |references |null:false,foreign_key:true |
 
 
 ### Association
