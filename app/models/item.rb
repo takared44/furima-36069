@@ -1,4 +1,4 @@
-class Item < ApplicationRecord
++class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
@@ -17,13 +17,3 @@ class Item < ApplicationRecord
     validates :delivery_date_id
   end
 
-  has_many_attached :images
-  has_one :record
-  belong_to :user
-
-  belongs_to_active_hash :category
-  belongs_to_active_hash :state
-  belongs_to_active_hash :delivery_fee_id
-  belongs_to_active_hash :delivery_prefecture
-  belongs_to_active_hash :delivery_date
-end
