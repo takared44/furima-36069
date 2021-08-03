@@ -62,4 +62,5 @@ end
 
 gem 'devise'
 gem 'pry-rails'
+#gem 'active_hash' #最終課題補足カリキュラム
    

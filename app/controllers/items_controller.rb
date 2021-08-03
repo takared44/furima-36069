@@ -8,11 +8,11 @@ class ItemsController < ApplicationController
   before_action :sold_out, only: [:edit]
 
   def index
-    # @items = Item.all.order(id: 'DESK')
+     @items = Item.all.order(id: 'DESC')
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
