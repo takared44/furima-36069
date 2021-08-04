@@ -16,4 +16,14 @@ class Item < ApplicationRecord
     validates :delivery_prefecture_id
     validates :delivery_date_id
   end
+
+   has_many_attached :images
+   has_one :record
+   belongs_to :user
+
+   belongs_active_hash :category
+   belongs_active_hash :state
+   belongs_active_hash :delivery_fee
+   belongs_active_hash :delivery_prefecture
+   belongs_active_hash :delivery_date
 end
