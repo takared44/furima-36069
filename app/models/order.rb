@@ -1,7 +1,6 @@
-# class Order 
+# class Order
 #   incude AcitiveModel::model
 #   attr_accessor :user_id, :item_id, :product_name, :text, :price, :postcode, :prefecture_id, :city, :blok, :building, :phone, :token
-
 
 #  with_options presence: true do
 #     validates :user_id

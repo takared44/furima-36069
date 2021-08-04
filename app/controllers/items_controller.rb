@@ -8,8 +8,8 @@ class ItemsController < ApplicationController
   before_action :sold_out, only: [:edit]
 
   def index
-    #記事一覧を新規投稿順に並べる
-     @items = Item.all.order(id: 'DESC')
+    # 記事一覧を新規投稿順に並べる
+    @items = Item.all.order(id: 'DESC')
   end
 
   def new
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:product_name, :text, :price ,:category_id, :state_id, :delivery_fee_id, :delivery_prefecture_id,
+    params.require(:item).permit(:product_name, :text, :price, :category_id, :state_id, :delivery_fee_id, :delivery_prefecture_id,
                                  :delivery_date_id, images: []).merge(user_id: current_user.id)
   end
 
@@ -61,6 +61,6 @@ class ItemsController < ApplicationController
   end
 
   def sold_out
-    redirect_to root_path if @item.record != nil
+    redirect_to root_path unless @item.record.nil?
   end
 end
