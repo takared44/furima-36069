@@ -1,0 +1,2 @@
+class DeliveryPrefecture < ApplicationRecord
+end
