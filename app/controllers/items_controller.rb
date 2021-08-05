@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, ":edit, :update, :destroy"]
 
-  before_action :find_item, only: [:show, :edit, :update, :destroy]
+  # before_action :find_item, only: [:show, :edit, :update, :destroy]
 
-  before_action :move_to_root_path, only: [:edit, :update, :destroy]
+  # before_action :move_to_root_path, only: [:edit, :update, :destroy]
 
-  before_action :sold_out, only: [:edit]
+  # before_action :sold_out, only: [:edit]
 
   def index
     # 記事一覧を新規投稿順に並べる
