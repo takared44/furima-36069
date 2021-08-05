@@ -7,7 +7,7 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with(model: @item, local: true) do |f| %>
+    <%= form_with(model: local: true) do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -106,7 +106,7 @@ app/assets/stylesheets/items/new.css %>
       </div>
       <div>
         <div class="price-content">
-          <div class="price-text">
+          <div class="hoge-text">
             <span>価格</span>
             <span class="indispensable">必須</span>
           </div>
