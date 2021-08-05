@@ -3,15 +3,24 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
+
   end
 
   describe '商品出品登録' do
     context '商品出品登録がうまくいくとき' do
       it 'product_name,text,price,category_id,state_id,delivery_fee_id,delivery_prefecture_id,delivery_date_id が存在すれば登録できる' do
         expect(@item).to be_valid
+        
       end
     end
+      
     context '商品出品がうまくいかないとき' do
+      it 'user_idが空では登録できないこと' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+      end
+      
       it '画像が空だとできない' do
         @item.images = nil
         @item.valid?
