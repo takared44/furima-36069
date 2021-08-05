@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 //require("turbolinks").start() //この行を削除する
 require("@rails/activestorage").start()
 require("channels")
+//require('./preview')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -15,3 +16,5 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+require("../item_price")
+//require("../card")
