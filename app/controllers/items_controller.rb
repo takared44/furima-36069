@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, ":edit, :update, :destroy"]
+  before_action :authenticate_user!, only: [:new, :create":edit, :update, :destroy"]
 
   # before_action :find_item, only: [:show, :edit, :update, :destroy]
 
@@ -7,10 +7,10 @@ class ItemsController < ApplicationController
 
   # before_action :sold_out, only: [:edit]
 
-  def index
-    # 記事一覧を新規投稿順に並べる
-    @items = Item.all.order(id: 'DESC')
-  end
+  # def index
+  #   # 記事一覧を新規投稿順に並べる
+  #   @items = Item.all.order(id: 'DESC')
+  # end
 
   def new
     @item = Item.new
