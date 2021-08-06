@@ -33,13 +33,13 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @item.update(item_params)
+  #     redirect_to root_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   # def destroy
   #   @item.destroy
@@ -57,11 +57,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def move_to_root_path
-    redirect_to root_path if current_user.id != @item.user.id
-  end
+  # def move_to_root_path
+  #   redirect_to root_path if current_user.id != @item.user.id
+  # end
 
-  def sold_out
-    redirect_to root_path unless @item.record.nil?
-  end
+  # def sold_out
+  #   redirect_to root_path unless @item.record.nil?
+  # end
 end
