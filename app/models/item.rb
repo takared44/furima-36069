@@ -8,7 +8,7 @@ class Item < ApplicationRecord
               numericality: { only_integer: true, with: /\A[0-9]+\z/, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                               message: 'は半角数字で300円以上9,999,999円以下で入力して下さい' }
 
-    validates :images
+    validates :image
   end
 
   with_options presence: true, numericality: { other_than: 1, message: 'は--以外を選択して下さい' } do
