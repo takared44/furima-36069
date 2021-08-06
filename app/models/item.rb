@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     validates :delivery_date_id
   end
 
-  has_many_attached :images
+  has_one_attached :image
   has_one :record
   belongs_to :user
 
