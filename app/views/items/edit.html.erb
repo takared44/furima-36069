@@ -7,7 +7,7 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with(model: local: true) do |f| %>
+    <%= form_with(model: @item,local: true) do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -21,20 +21,20 @@ app/assets/stylesheets/items/new.css %>
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, name: 'item[image][]', id:"item_image" %>
+        <%= f.file_field :image, id:"item-image" %>
       </div>
     </div>
     <%# 出品情報のプレビュー %>
-    <div id="image-list"></div>
+    <%# <div id="image-list"></div>
     <div class='item-img-content'>
-     <%= image_tag @item.images[0] ,class:"images" %>
+     <%= image_tag @item.image,class:"image" %> 
 
-     <div class="item-box-other-img">
+     <%# <div class="item-box-other-img">
       <% @item.images.each do |image| %>
-       <%= image_tag image, class: 'edit_images_mini' %>
-       <% end %>
-       </div>
-       </div>
+       <%# <%= image_tag image, class: 'edit_images_mini' %>
+       <%# <% end %>
+       <%# </div> %> 
+       <%# </div> %>
 
     <%# /商品画像 %>
     <%# 商品名と商品説明 %>
@@ -66,9 +66,9 @@ app/assets/stylesheets/items/new.css %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:state_id, Stste.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
-      </div>
+         </div>
+        <%= f.collection_select(:state_id, State.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+       </div> 
     </div>
     <%# /商品の詳細 %>
 

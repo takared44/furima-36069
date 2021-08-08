@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
 
   before_action :find_item, only: [:show, :edit, :update, :destroy]
 
   before_action :move_to_root_path, only: [:edit, :update, :destroy]
 
-  before_action :sold_out, only: [:edit]
+ # before_action :sold_out, only: [:edit]
 
   def index
     # 記事一覧を新規投稿順に並べる
@@ -33,18 +33,18 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  # def update
-  #   if @item.update(item_params)
-  #     redirect_to root_path
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
-  # def destroy
-  #   @item.destroy
-  #   redirect_to root_path
-  # end
+  def destroy
+    @item.destroy
+    redirect_to root_path
+  end
 
   private
 
@@ -57,9 +57,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  # def move_to_root_path
-  #   redirect_to root_path if current_user.id != @item.user.id
-  # end
+  def move_to_root_path
+    redirect_to root_path if current_user.id != @item.user.id
+  end
 
   # def sold_out
   #   redirect_to root_path unless @item.record.nil?

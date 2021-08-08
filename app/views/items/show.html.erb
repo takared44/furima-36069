@@ -31,7 +31,7 @@
       </span>
     </div>
     <% if user_signed_in? && current_user.id == @item.user_id #&& @item.record == nil %>
-     <%= link_to "商品の編集", root_path, class: "item-red-btn" %>
+     <%= link_to "商品の編集", edit_item_path, class: "item-red-btn" %>
     <p class="or-text">or</p>
         <%= link_to "削除", root_path, class:"item-destroy" %>
     <% elsif user_signed_in? #&&  @item.record == nill %>
