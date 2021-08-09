@@ -57,7 +57,7 @@
 | Colum                 | Type      | Options                    |
 |:----------------------|-----------|----------------------------|
 |postcode               |string     |null:false                  |
-|delivery_prefecture_id |integer    |null:false                  |
+|prefecture_id |integer    |null:false                  |
 |city                   |string     |null:false                  |
 |bloc                   |string     |null:false                  |
 |building               |string     |                            |
