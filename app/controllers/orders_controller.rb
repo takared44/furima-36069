@@ -1,17 +1,17 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: [:indx,:create]
+  before_action :authenticate_user!, only: [:indx,:create]
   before_action :find_item, only: [:indx,:create]
 
 
   before_action :move_to_root_path, only: [:indx,:create]
 
-  deh index
+  def index
 
    @order = Order.new
 end
 
 def create
-  @order = Order.new(order_params)
+   @order = Order.new(order_params)
   if @order.valid?
     pay_item
     @order.save
@@ -33,7 +33,7 @@ def order_params
 end
 
 def move_to_root_path
-  redirect_to root_path if current_user/id == @item.user.id || @item.record ! = nil
+  redirect_to root_path if current_user.id == @item.user.id || @item.record ! = nil
 end
 
 def pay_item
