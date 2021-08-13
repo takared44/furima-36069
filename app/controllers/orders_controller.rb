@@ -12,10 +12,11 @@ end
 
 def create
    @order = Order.new(order_params)
+   
   if @order.valid?
     pay_item
     @order.save
-    reddirect_to root_path
+    redirect_to root_path
   else
     render action: :index
   end
@@ -38,6 +39,7 @@ end
 
 def pay_item
   Payjp.api_key = "sk_test_a2bee24ad01fa80fe01c0111"
+  
   Payjp::Charge.create(
     amount: @item.price,
     card: order_params[:token],
