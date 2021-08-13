@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  include ActiveModel: :module 
+  include ActiveModel::Model
   attr_accessor :user_id, :item_id, :product_name, :text, :price, :postcode, :prefecture_id, :city, :block, :buildig, :phone, :token
     
 
@@ -18,6 +18,6 @@ class Order < ApplicationRecord
     def save
 
       record = Record.create(user_id: user_id, item_id: item_id)
-      Address.create(postcode: postcode,prefecture_id: prefecture_id, city, bock: bock, building: building, phone: phone,record_id: record.id)
+      Address.create(postcode: postcode, prefecture_id: prefecture_id, city: city, bock: bock, building: building, phone: phone,record_id: record.id)
   end
 end
