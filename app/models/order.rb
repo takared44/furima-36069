@@ -9,15 +9,15 @@ class Order < ApplicationRecord
     validates  :postcode,         format: { with: /\A[0-9]{3}-[0-9]{4}\z/,messaage: 'は(-)を入れて7文字で入力してください' }
     validates  :prefecture_id,    numericality: { other_than: 1, message: "は--以外を選択してください" }
     validates  :city
-    validates  :block
-    varidates  :phone, numericality: { only_integer: true,message: 'は半角文字で入力してください' }
-    varidates  :token
+    validates  :bloc
+    validates  :phone, numericality: { only_integer: true,message: 'は半角数字で入力してください' }
+    validates  :token
   end
-    varidates  :phone, format: { with: /\A\d{10,11}\z/,message: 'は(-)を抜いた11桁までを入力してください' }
+    validates  :phone, format: { with: /\A\d{10,11}\z/,message: 'は(-)を抜いた11桁までを入力してください' }
 
     def save
 
       record = Record.create(user_id: user_id, item_id: item_id)
-      Address.create(postcode: postcode, prefecture_id: prefecture_id, city: city, bock: bock, building: building, phone: phone,record_id: record.id)
+      Address.create(postcode: postcode, prefecture_id: prefecture_id, city: city, bloc: bloc, building: building, phone: phone, record_id: record.id)
   end
 end
