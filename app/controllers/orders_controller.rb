@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:indx,:create]
-  before_action :find_item, only: [:indx,:create]
+  before_action :authenticate_user!, only: [:index,:create]
+  before_action :find_item, only: [:index,:create]
 
 
-  before_action :move_to_root_path, only: [:indx,:create]
+  before_action :move_to_root_path, only: [:index,:create]
 
   def index
 
@@ -15,7 +15,7 @@ def create
   if @order.valid?
     pay_item
     @order.save
-    rendirect_to root_path
+    reddirect_to root_path
   else
     render action: :index
   end
