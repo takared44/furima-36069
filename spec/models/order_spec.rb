@@ -81,6 +81,11 @@ describe '商品購入' do
       @order.phone = "123456789012"
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone は(-)を抜いた11桁までを入力してください")
+      it '電話番号が英数字混合だと保存できないこと' do
+        @order.phone = "123456789aaa"
+        @order.valid?
+        expect(@order.errors.full_messages).to include("電話番号は英数混合文字では登録できない")
+       end
      end
     end
   end
