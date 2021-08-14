@@ -40,7 +40,7 @@ describe '商品購入' do
      it '配送先の情報として、郵便番号が空だと保存できないこと' do
       @order.postcode = ''
       @order.valid?
-      expect(@order.errors.full_messages).to include("Postcode can't be blank", "Postcode is invalid")
+      expect(@order.errors.full_messages).to include("Postcode can't be blank")
      end
      it '配送先の情報として、郵便番号ハイフン(-)をふくんでないこと' do
       @order.postcode = '0010000'

@@ -38,7 +38,7 @@ def move_to_root_path
 end
 
 def pay_item
-  Payjp.api_key = "sk_test_a2bee24ad01fa80fe01c0111"
+  Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
   
   Payjp::Charge.create(
     amount: @item.price,

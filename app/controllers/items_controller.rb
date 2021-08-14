@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   before_action :move_to_root_path, only: [:edit, :update, :destroy]
 
-  before_action :sold_out, only: [:edit]
+  before_action :sold_out, only: [:edit, :update, :destory]
 
   def index
     # 記事一覧を新規投稿順に並べる
@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
     redirect_to root_path if current_user.id != @item.user.id
   end
 
-  # def sold_out
-  #   redirect_to root_path unless @item.record.nil?
-  # end
+  def sold_out
+    redirect_to root_path unless @item.record.nil?
+  end
 end

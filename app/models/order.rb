@@ -1,6 +1,6 @@
 class Order 
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :product_name, :text, :price, :postcode, :prefecture_id, :city, :bloc, :building, :phone, :token
+  attr_accessor :user_id, :item_id, :product_name, :postcode, :prefecture_id, :city, :bloc, :building, :phone, :token
     
 
   with_options presence: true do
